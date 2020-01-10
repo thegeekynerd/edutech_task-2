@@ -1,0 +1,27 @@
+<script>
+    function validateForm() {
+  var x = document.forms["giveAnswer"]["ans"].value;
+  var y = document.forms["giveAnswer"]["question"].value;
+  if (x == ""||y== "") {
+    alert("All fields must be filled out");
+    return false;
+  }
+}
+</script>
+<div class="container">
+    <form action="/answer" method="POST" name="giveAnswer" onsubmit="return validateForm()" class="form-container">
+        <span><strong>Question: </strong></span>
+        <select name="question" id="question">
+            <option value="">--Select a Question--</option>
+            {{#each questions}}
+            {{#unless this.isAnswered}}
+                <option value="{{this._id}}">{{this.user}} - {{this.question}}</option>
+            {{/unless}}
+            {{/each}}
+        </select>
+        <input type="text" name="ans" id="ans" placeholder="Enter the answer here...">
+        <input type="submit" name="" id="" value="submit">
+    </form>
+    <p>{{st}} </p>
+    <form action="/logout" method="POST"><input type="submit" name="" id="" value="Logout"></form>
+</div>

@@ -1,0 +1,37 @@
+<script>
+    function validateForm() {
+  //var x = document.forms["addQuestion"]["user"].value;
+  var y = document.forms["addQuestion"]["question"].value;
+  if (y== "") {
+    alert("All fields must be filled out");
+    return false;
+  }
+}
+</script>
+<div class="container" style="padding: 10px;">
+      <form action="/logout" method="POST"><input type="submit" name="" id="" value="logout"></form>
+    </div>
+<div class="container-fluid">
+    <form action="/add" method="POST" onsubmit="return validateForm()" name="addQuestion" class="form-container">
+        
+        <p>Question:</p>
+        <input type="text" name="question" id="question" placeholder="Enter your questions here...">
+        <button id="send">Add</button>
+    </form>
+    <p>{{st}} </p><br>
+  </div>
+  <div class="container-fluid">
+    <section class="col-12 col-sm-6 col-md-3 answered">
+      <strong>Answered: </strong>
+    {{#each questions}}
+    {{#if this.isAnswered}}
+    <div class="alert alert-warning " role="alert">
+      <p><strong> {{this.question}} - </strong>{{this.answer}}</p>
+    </div>
+    {{/if}}
+    {{/each}}
+    <div id="output"></div>
+    </section>
+    </div>
+
+    

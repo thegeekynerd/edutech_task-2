@@ -1,0 +1,23 @@
+
+    <input type="text" placeholder="Name" id="user"><br>
+    <input type="text" placeholder="Message" id="message"><br>
+    <button id="send">Send</button>
+    <div id="output"></div>
+
+
+    <script >
+        var socket = io.connect("http://localhost:3000");
+
+        var message = document.getElementById('message');
+        var name = document.getElementById('user');
+        var btn = document.getElementById('send');
+        var output = document.getElementById('output');
+
+        btn.addEventListener("click",function(){
+            socket.emit("thread",{msg:message.value,user:user.value});
+        });
+
+        socket.on("thread", function(data){
+            output.innerHTML+= "<p><strong>"+data.user+": "+"</strong></p>"+data.msg;
+        });
+    </script>
