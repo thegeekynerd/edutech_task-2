@@ -1,5 +1,8 @@
 # edutech_task-2
 
+Start by using the command npm install to get all the dependencies.
+
+
 Credentials for normal user access:
 username : password | 
 aniket   : 1234 | 
