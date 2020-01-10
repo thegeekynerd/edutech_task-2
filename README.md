@@ -1,10 +1,10 @@
 # edutech_task-2
 
 Credentials for normal user access:
-username : password
-aniket   : 1234
-ram      : 5678
-shyam    : 9101
+username : password | 
+aniket   : 1234 | 
+ram      : 5678 | 
+shyam    : 9101 
 
 Credential for accessing the answer page is - username: admin and password: admin
 
